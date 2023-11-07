@@ -15,7 +15,7 @@ env = OceanEnvironment(holoocean.make("PierHarbor-Hovering"))
 policy_kwargs = dict(activation_fn=th.nn.ReLU,
                     net_arch=dict(pi=[32, 32], vf=[32, 32])
                     )
-model = A2C(ActorCriticPolicy, env, verbose=1, policy_kwargs = policy_kwargs, seed=123, use_sde=True)
+model = PPO(ActorCriticPolicy, env, verbose=1, policy_kwargs = policy_kwargs, seed=123, use_sde=True)
 
 
 start_time = time.time()
