@@ -83,18 +83,6 @@ class OceanEnvironment(gym.Env):
         return self.holo_env._get_single_state()
     
     def get_obs(self):
-        # info = self.get_info()
-        # if 'PoseSensor' in info:
-        #     cur_pose_matrix = info['PoseSensor'] # a homogonous matrix
-        #     # Extract the rotation matrix (3x3) from the homogeneous matrix
-        #     rotation_matrix = cur_pose_matrix[:3, :3]
-        #     # Use the rotation matrix to calculate roll, pitch, and yaw angles
-        #     roll, pitch, yaw = euler.mat2euler(rotation_matrix, axes='sxyz')
-        #     translation_vector = cur_pose_matrix[:3,3]
-        #     observation = np.append(translation_vector,[Clamp(roll+np.pi), pitch, yaw])
-        # else:
-        #     observation = np.zeros((6,1))
-        # return observation
         observation = self.get_obs_before_normalize()
         observation -= self.evn_start_state
         return observation
